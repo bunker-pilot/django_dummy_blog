@@ -1,6 +1,25 @@
 {% extends "base.html" %}
-
+{% load static %}
+{% block css_files %}
+    <link rel ="stylesheet" href= "{% static "blog/home.css" %}" >
+{% endblock css_files %}
 {% block content %}
-    <h1>Hello there </h1>
+    <section id = "welcome">
+        <header>
+            <img src ="{% static "blog/images/max.png" %}" alt = "Erfan">
+            <h2>Erfan's Blog</h2>
+        </header>
+        <p>Hi, I'm erfan, a computer engineering student</p>
+    </section>
+    <section>
+        <h2>My latest Thoughts </h2>
+        <ul>
+           {% include "blog/includes/post.html" %}
+        </ul>
+    </section>
+    <section id = "about">
+        <h2>What i do </h2>
+        <p>Bitch why do you care so much about some pointless html css that could have been generated using ai ?</p>
+    </section>
 {% endblock%}
 
