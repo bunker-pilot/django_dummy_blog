@@ -1,0 +1,134 @@
+/* ==== Global styles ==== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background-color: #fafafa;
+    color: #222;
+    line-height: 1.6;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+/* ==== Header / Navigation ==== */
+#main-navigation {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 1rem;
+}
+
+#main-navigation h1 a {
+    text-decoration: none;
+    color: #111;
+    font-weight: 700;
+    font-size: 1.5rem;
+}
+
+#main-navigation nav a {
+    text-decoration: none;
+    color: #444;
+    margin-left: 1.2rem;
+    font-weight: 500;
+    transition: color 0.2s ease;
+}
+
+#main-navigation nav a:hover {
+    color: #000;
+}
+
+/* ==== Welcome Section ==== */
+#welcome {
+    text-align: center;
+    margin: 3rem 0;
+}
+
+#welcome header img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    background-color: #eee;
+    object-fit: cover;
+    margin-bottom: 1rem;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+}
+
+#welcome h2 {
+    font-size: 1.8rem;
+    margin-bottom: 0.5rem;
+}
+
+#welcome p {
+    color: #555;
+}
+
+/* ==== Blog Posts Section ==== */
+section ul {
+    list-style: none;
+}
+
+.post {
+    background: #fff;
+    border-radius: 10px;
+    margin: 1rem 0;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+    overflow: hidden;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.post:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.post a {
+    text-decoration: none;
+    color: inherit;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
+}
+
+.post img {
+    width: 120px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 8px;
+    background-color: #eee;
+}
+
+.post_content h3 {
+    font-size: 1.2rem;
+    margin-bottom: 0.4rem;
+    color: #111;
+}
+
+.post_content p {
+    color: #555;
+    font-size: 0.95rem;
+}
+
+/* ==== About Section ==== */
+#about {
+    margin-top: 3rem;
+    padding-top: 2rem;
+    border-top: 1px solid #eee;
+}
+
+#about h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+#about p {
+    color: #444;
+    line-height: 1.7;
+}

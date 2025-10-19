@@ -24,7 +24,7 @@ db.sqlite3
 media/
 staticfiles/
 # If you collect static files to a specific directory, ignore it:
-static/
+
 
 # Local settings (optional)
 local_settings.py
