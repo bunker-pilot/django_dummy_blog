@@ -1,11 +1,11 @@
 {% load static %}
 <li>
     <article class = "post">
-        <a href="">
-            <img src = "{% static "blog/images/mountains.jpg" %}" alt ="Mountain Hiking">
+        <a href="{% url "post" i.slug %}">
+            <img src = "{% static "blog/images/"|add:i.image %}" alt ="Mountain Hiking">
             <div class = "post_content">
-                <h3>Mountain Hiking<h3>
-                <p>lorem ipsum bithc</p>
+                <h3>{{i.title}}<h3>
+                <p>{{i.excerpt}}</p>
              </div>
         </a>
     </article>
