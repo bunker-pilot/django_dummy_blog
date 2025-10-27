@@ -12,13 +12,17 @@ This Post Title
 {% block content %}
     <section id="summary">
     <h2>{{p.title}}</h2>
+    <div>
+        {% for tag in tags%}
+        <span>{{tag.name}}</span>
+        {% endfor %}
+    </div>
     <article>
-        <img src="{% static "blog/images/"|add:p.image%}" alt={{p.title}}>
-        <address>{{p.author}}</address>
+        <img src="{% static "blog/images/"|add:p.image_name%}" alt={{p.title}}>
+        <address>By <a href= "mailto:{{p.auhtor.email}}">{{p.author}}</a></address>
         <div>Last updated on <time>{{p.date|date:"d M Y"}}</time></div>
     </article>
     </section>
-
     <main>
     <p>
         {{p.content}}
