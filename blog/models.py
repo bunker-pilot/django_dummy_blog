@@ -22,7 +22,7 @@ class Post(models.Model):
     slug = models.SlugField(default="", null=False, db_index=True)
     content = models.TextField(validators=[MinLengthValidator(20)])
     date = models.DateField(auto_now=True)
-    image_name = models.CharField(max_length=100)
+    image = models.ImageField(upload_to = "posts" , null = True)
     tag = models.ManyToManyField(Tag , related_name="posts")
     
     
