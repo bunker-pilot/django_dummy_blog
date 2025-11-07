@@ -1,84 +1,176 @@
-/* ==== Post Detail Page Styles ==== */
-
-/* Section Header */
+/* ----------------------------
+   Post detail layout
+----------------------------- */
 #summary {
-    background-color: #fff;
-    padding: 2rem;
-    border-radius: 12px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
     margin-bottom: 2rem;
-}
-
-#summary h2 {
+    padding: 1rem;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  #summary h2 {
     font-size: 2rem;
-    color: #333;
-    margin-bottom: 1rem;
-}
-
-#summary article {
+    margin-bottom: 0.5rem;
+    color: #222;
+  }
+  
+  #summary .tags {
+    margin: 0.8rem 0 1.5rem;
+  }
+  
+  .tag {
+    display: inline-block;
+    background-color: #eef2ff;
+    color: #374151;
+    padding: 0.25rem 0.7rem;
+    margin: 0 0.3rem 0.3rem 0;
+    border-radius: 0.5rem;
+    font-size: 0.9rem;
+  }
+  
+  article {
     display: flex;
     flex-direction: column;
-    gap: 1rem;
-    align-items: flex-start;
-}
-
-#summary img {
-    width: 100%;
+    gap: 0.8rem;
+  }
+  
+  article img {
+    max-width: 100%;
     height: auto;
-    border-radius: 8px;
-    background-color: #eee;
-    object-fit: cover;
-}
-
-#summary address {
-    font-style: italic;
-    color: #666;
-    margin-top: 1rem;
-}
-
-#summary div {
-    font-size: 0.9rem;
-    color: #888;
-}
-
-/* Main Content */
-main {
-    font-size: 1.1rem;
-    line-height: 1.8;
-    color: #333;
-    padding: 2rem;
-    background-color: #fff;
-    border-radius: 12px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
-}
-
-main p {
-    margin-bottom: 1.5rem;
+    border-radius: 0.6rem;
+    margin-top: 0.5rem;
+  }
+  
+  article address {
+    font-style: normal;
     color: #555;
-}
-
-main p:last-of-type {
-    margin-bottom: 0;
-}
-
-/* Mobile Responsiveness */
-@media (max-width: 768px) {
-    #summary {
-        padding: 1.5rem;
-    }
-
-    #summary h2 {
-        font-size: 1.6rem;
-    }
-    #summary a{
-        text-decoration: none;
-        color: #eee;
-    }
-    main {
-        padding: 1.5rem;
-    }
-
-    main p {
-        font-size: 1rem;
-    }
-}
+  }
+  
+  article a {
+    color: #6b46c1;
+    text-decoration: none;
+  }
+  
+  article a:hover {
+    text-decoration: underline;
+  }
+  
+  main {
+    line-height: 1.7;
+    color: #333;
+    margin-top: 2rem;
+    font-size: 1.1rem;
+  }
+  
+  /* ----------------------------
+     Comment form section
+  ----------------------------- */
+  #comments-section {
+    margin-top: 3rem;
+    padding: 1.5rem 2rem;
+    background-color: #fafafa;
+    border: 1px solid #eee;
+    border-radius: 0.8rem;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  }
+  
+  #comments-section h3 {
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+    color: #222;
+  }
+  
+  .form-control {
+    margin-bottom: 1rem;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .form-control label {
+    font-weight: 600;
+    margin-bottom: 0.4rem;
+    color: #333;
+  }
+  
+  .form-control input,
+  .form-control textarea {
+    padding: 0.6rem 0.8rem;
+    border: 1px solid #ccc;
+    border-radius: 0.5rem;
+    font-size: 1rem;
+    resize: vertical;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  }
+  
+  .form-control input:focus,
+  .form-control textarea:focus {
+    border-color: #6b46c1;
+    box-shadow: 0 0 0 3px rgba(107, 70, 193, 0.15);
+    outline: none;
+  }
+  
+  /* Error state */
+  .invalid input,
+  .invalid textarea {
+    border-color: #dc2626;
+  }
+  
+  .error {
+    color: #dc2626;
+    font-size: 0.9rem;
+    margin-top: 0.3rem;
+  }
+  
+  /* Submit button */
+  #comments-section button {
+    background-color: #6b46c1;
+    color: white;
+    border: none;
+    padding: 0.6rem 1.4rem;
+    border-radius: 0.5rem;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+  }
+  
+  #comments-section button:hover {
+    background-color: #553c9a;
+  }
+  
+  #comments-section button:active {
+    transform: scale(0.98);
+  }
+  
+  /* ----------------------------
+     Comments list
+  ----------------------------- */
+  #comments-list {
+    margin-top: 2.5rem;
+    padding-top: 1rem;
+    border-top: 1px solid #eee;
+  }
+  
+  #comments-list h3 {
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+    color: #222;
+  }
+  
+  #comments-list ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  #comments-list li {
+    background: #f9fafb;
+    border: 1px solid #eee;
+    padding: 0.9rem 1rem;
+    margin-bottom: 0.7rem;
+    border-radius: 0.6rem;
+    line-height: 1.5;
+  }
+  
+  #comments-list strong {
+    color: #111;
+    font-weight: 600;
+  }
+  

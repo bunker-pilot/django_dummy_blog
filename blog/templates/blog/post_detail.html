@@ -1,31 +1,60 @@
-{% extends "base.html" %} 
-{% load static %} 
+{% extends "base.html" %}
+{% load static %}
 
-{% block page_title %} 
-This Post Title 
-{% endblock %} 
+{% block page_title %}
+    {{ p.title }}
+{% endblock %}
 
-{% block css_files %} 
-<link rel="stylesheet" href="{% static "blog/post_detail.css" %}"> 
-{% endblock %} 
+{% block css_files %}
+<link rel="stylesheet" href="{% static 'blog/post_detail.css' %}">
+{% endblock %}
 
 {% block content %}
-    <section id="summary">
-    <h2>{{p.title}}</h2>
-    <div>
-        {% for tag in tags%}
-        <span>{{tag.name}}</span>
+<section id="summary">
+    <h2>{{ p.title }}</h2>
+    <div class="tags">
+        {% for tag in tags %}
+            <span class="tag">{{ tag.name }}</span>
         {% endfor %}
     </div>
     <article>
-        <img src="{{p.image.url}}" alt={{p.title}}>
-        <address>By <a href= "mailto:{{p.auhtor.email}}">{{p.author}}</a></address>
-        <div>Last updated on <time>{{p.date|date:"d M Y"}}</time></div>
+        <img src="{{ p.image.url }}" alt="{{ p.title }}">
+        <address>By <a href="mailto:{{ p.author.email }}">{{ p.author }}</a></address>
+        <div>Last updated on <time>{{ p.date|date:"d M Y" }}</time></div>
     </article>
-    </section>
-    <main>
-    <p>
-        {{p.content}}
-    </p>
-    </main>
+</section>
+
+<main>
+    <p>{{ p.content }}</p>
+</main>
+
+<section id="comments-section">
+    <h3>Leave a Comment</h3>
+    <form method="post" action="{% url "post" p.slug %}">
+        {% csrf_token %}
+        {% for form_field in comment_form %}
+            <div class="form-control {% if form_field.errors %}invalid{% endif %}">
+                {{ form_field.label_tag }}
+                {{ form_field }}
+                {% if form_field.errors %}
+                    <p class="error">{{ form_field.errors|striptags }}</p>
+                {% endif %}
+            </div>
+        {% endfor %}
+        <button type="submit">Submit</button>
+    </form>
+</section>
+
+{% if comments %}
+<section id="comments-list">
+    <h3>Comments</h3>
+    <ul>
+        {% for comment in comments %}
+            <li>
+                <strong>{{ comment.user_name }}</strong>: {{ comment.text }}
+            </li>
+        {% endfor %}
+    </ul>
+</section>
+{% endif %}
 {% endblock %}

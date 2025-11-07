@@ -24,5 +24,12 @@ class Post(models.Model):
     date = models.DateField(auto_now=True)
     image = models.ImageField(upload_to = "posts" , null = True)
     tag = models.ManyToManyField(Tag , related_name="posts")
+    def __str__(self):
+        return f"{self.title}"
     
+class Comment(models.Model):
+    user_name = models.CharField(max_length=20 )
+    email = models.EmailField()
+    text = models.TextField(max_length=200)
+    post = models.ForeignKey(Post, related_name="comments", on_delete=models.CASCADE)
     
