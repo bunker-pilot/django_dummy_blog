@@ -22,7 +22,23 @@
         <address>By <a href="mailto:{{ p.author.email }}">{{ p.author }}</a></address>
         <div>Last updated on <time>{{ p.date|date:"d M Y" }}</time></div>
     </article>
+
 </section>
+
+<form method="post" action = "{% url "read-later" %}">
+    {% csrf_token %}
+    <diV id = "read-later">
+        <input type = "hidden" value = "{{p.id}}" name = "post-id"> 
+        
+        <button type ="submit">
+            {% if is_stored %}
+                Remove
+            {% else %}
+                Add 
+            {% endif %}
+        </button>
+    </div>
+</form>
 
 <main>
     <p>{{ p.content }}</p>
