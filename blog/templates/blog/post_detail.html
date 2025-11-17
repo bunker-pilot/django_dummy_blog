@@ -22,19 +22,18 @@
         <address>By <a href="mailto:{{ p.author.email }}">{{ p.author }}</a></address>
         <div>Last updated on <time>{{ p.date|date:"d M Y" }}</time></div>
     </article>
-
 </section>
 
-<form method="post" action = "{% url "read-later" %}">
+<!-- Read Later Button -->
+<form method="post" action="{% url 'read-later' %}">
     {% csrf_token %}
-    <diV id = "read-later">
-        <input type = "hidden" value = "{{p.id}}" name = "post-id"> 
-        
-        <button type ="submit">
+    <div id="read-later">
+        <input type="hidden" value="{{ p.id }}" name="post-id">
+        <button type="submit">
             {% if is_stored %}
                 Remove
             {% else %}
-                Add 
+                Add
             {% endif %}
         </button>
     </div>
@@ -46,7 +45,7 @@
 
 <section id="comments-section">
     <h3>Leave a Comment</h3>
-    <form method="post" action="{% url "post" p.slug %}">
+    <form method="post" action="{% url 'post' p.slug %}">
         {% csrf_token %}
         {% for form_field in comment_form %}
             <div class="form-control {% if form_field.errors %}invalid{% endif %}">
